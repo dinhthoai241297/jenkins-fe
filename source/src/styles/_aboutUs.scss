@@ -1,0 +1,252 @@
+@mixin for-size($breakpoints) {
+
+    @if map-has-key($screen-breakpoints, $breakpoints) {
+    
+    $breakpoint-value: map-get($screen-breakpoints, $breakpoints);
+    
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    } 
+}
+.aboutUs-page{
+    padding: 0;
+    @include for-size(md){
+        padding: 0 24px;
+    }
+    display: flex;
+    flex-direction: column;
+    max-width: 1336px;
+    width: 100%;
+    margin: 0 auto;
+
+    .sider{
+        position: fixed;
+        @include for-size(md){
+            position: relative;
+            width: 28vw !important;
+            min-height: 36vw;
+            height: auto;
+            max-width: 350px !important;
+            min-width: 260px !important;
+            top: 0;
+        }
+        left: 0;
+        top: 64px;
+        z-index: 99;
+        height: 100%;
+        flex: unset !important;
+        width: 80vw !important;
+        max-width: unset !important;
+        min-width: 80vw !important;
+        background-color: rgb(53, 53, 53) !important;
+
+        .menu-title{
+            color: white;
+            font-size: 1.6em;
+            font-weight: 600;
+            text-transform: uppercase;
+            border-bottom: 1px solid #ccc;
+            padding: 12px 0;
+            div{
+                @include for-size(md){
+                    font-size: 1.1em;
+                    margin-right: 0 !important;
+                }
+            }
+        }
+
+        .menu{
+            @include for-size(md){
+                margin-top: 0;
+                height: auto;
+            }
+            height: 83vh;
+            overflow-y: auto;
+            background-color: inherit !important;
+            .menu-item{
+                height: auto;
+                min-height: 64px;
+                align-items: start;
+                line-height: 1.6;
+                white-space: normal;
+                padding: 1em;
+                font-size: 1.1rem;
+                margin: 0;
+                border-bottom: 1px solid #ccc
+            }
+
+            .ant-menu-title-content{
+                color: white;
+                font-weight: 450;
+            }
+            .ant-menu-item-selected{
+                background-color: rgb(82, 80, 80);
+                .ant-menu-title-content{
+                    
+                }
+            }
+        }
+
+        .ant-layout-sider-zero-width-trigger{
+            left: 0 !important;
+            top: 0;
+            z-index: 9;
+            opacity: 0;
+            transition: all 0.1s;
+            color: white;
+            background-color: rgb(0, 18, 78);
+        }
+
+        .close{
+            @include for-size(md){
+                display: none;
+            }
+            position: absolute;
+            right: 8px;
+            top: 8px;
+            z-index: 999;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+    }
+
+    .sider.ant-layout-sider-collapsed{
+        left: -81vw;
+        .ant-layout-sider-zero-width-trigger{
+            opacity: 1;
+            left: 81vw !important;
+        }
+    }
+
+    .layer{
+        @include for-size(md){
+            display: none;
+        }
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-color: rgba(0, 0, 0, 0.226);
+    }
+    
+    .layer-hide{
+        display: none;
+    }
+
+    main{
+        padding: 0;
+        @include for-size(md){
+            padding: 1.6vw 2.1vw;
+        }
+        background-color: #fff;
+        .list-news, .detail-news{
+            padding: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            background-color: transparent;
+            height: 100%;
+            @include for-size(md){
+                height: auto;
+                padding: 0px;
+            }
+
+
+            .ant-spin-nested-loading {
+                position: unset;
+            }
+
+            .list-item{
+                display: block;
+                padding: 0;
+                margin: 16px 0;
+                overflow: hidden;
+                border-bottom: none;
+                @include for-size(sm){
+                    margin: 0;
+                    margin-bottom: 1.9vw;
+                    overflow: hidden;
+                }
+                @include for-size(md){
+                    padding: 16px;
+                    padding: 0;
+                }
+
+                .new-avatar{
+                    height: auto;
+                    width: 30vw;
+                    height: auto;
+                    margin: 0 2vw 0 0;
+                    max-width: 170px;
+                    max-height: 170px;
+                    float: left;
+                    min-height: 50px;
+                }
+
+                .item-meta {
+                    color: rgba(0, 0, 0, 0.9);
+                    font-size: 1.1rem;
+                    font-weight: bold;
+                    margin: 0 auto;
+                    @include for-size(md){
+                        min-width: unset;
+                        width: 100%;
+                    }
+                }
+
+                .new-content{
+                    max-height: 113px;
+                    color: rgba(0, 0, 0, 0.9);
+
+                    iframe, img{
+                        width: 100%;
+                    }
+                    iframe{
+                        height: 100%;
+                        max-height: 20%;
+                    }
+                }
+            }
+            .list-item:nth-child(1){
+                margin-top: 0;
+            }
+
+            .item-content{
+                padding: 0;
+                line-height: 1.5;
+                @include for-size(md){
+                    padding: 0;
+                }
+            }
+            .new-content{
+                iframe, img{
+                    width: 100%;
+                    max-width: 900px;
+                    max-height: 500px;
+                    display: block;
+                }
+                iframe{
+                    height: 65vh;
+                    @include for-size(md){
+
+                    }
+                    width: 100%;
+                }
+            }
+
+            .ant-list-pagination{
+                position: absolute;
+                right: 1rem;
+                bottom: 1rem;
+            }
+        }
+    }
+    .ant-tooltip{
+        display: none;
+    }
+}

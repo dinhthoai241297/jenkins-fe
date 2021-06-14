@@ -1,0 +1,12 @@
+.competences-page {
+    padding: 16px 8px;
+
+    .competences-container {
+        .ant-tabs-content-holder {
+            margin-top: -16px;
+        }
+        .competences-tab-content {
+            background-color: white;
+        }
+    }
+}

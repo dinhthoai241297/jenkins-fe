@@ -1,0 +1,22 @@
+.login-page {
+    display: flex;
+}
+
+.login-container {
+    max-width: 460px;
+    width: 100%;
+    margin: auto;
+
+    .page-title {
+        text-align: center;
+    }
+
+    .login-form-button {
+        width: 100%;
+    }
+
+    .ant-form-item-explain {
+        font-size: 13px;
+        margin: 4px 0;
+    }
+}

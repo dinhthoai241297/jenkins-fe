@@ -1,0 +1,119 @@
+@mixin for-size($breakpoints) {
+
+    @if map-has-key($screen-breakpoints, $breakpoints) {
+    
+    $breakpoint-value: map-get($screen-breakpoints, $breakpoints);
+    
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    } 
+}
+.preLogin-page{
+    
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    
+    background: #f5f5f5;
+    color: #5B5B5F;
+    cursor: auto;
+    font-family: "Roboto Slab Arial, sans-serif";
+
+    font-style: normal;
+    font-weight: 100;
+    line-height: 1.5;
+    .alert-box{
+        margin-bottom: 1.25rem;
+        position: relative;
+        transition: opacity 300ms ease-out;
+        .ant-card-bordered {
+            background: none;
+            border-color: #dd2c00;
+            color: #dd2c00;
+            border-radius: 6px;
+            font-size:1.1rem;
+        }
+    }
+    .ant-card-body{
+        padding: 14px;
+        text-align: center;
+    }
+    
+    .panel{
+        border-style: solid;
+        border-width: 1px;
+        border-color: #d8d8d8;
+        padding: 1.25rem;
+        background: #f2f2f2;
+        border-radius: 6px;
+        display:block;
+        .ant-row{
+            margin:0;
+        }
+        .ant-col-8, .ant-col-15{
+            position: relative;
+            padding-left: .5rem;
+            padding-right: .5rem;
+            float: left;
+            
+        }
+        .ant-col-8{
+            font-size:1rem;
+            color: #4d4d4d;
+            cursor: pointer;
+        }
+        .ant-select{
+            width: 100%;
+        }
+        .ant-select-selector{
+            background-position: 100% center;
+            background-repeat: no-repeat;
+            border-style: solid;
+            border-width: 1px;
+            border-color: #ccc;
+            color: #444;
+            font-family: inherit;
+            line-height: normal;
+            padding: .5rem;
+            border-radius: 0;
+            height: 2.3125rem;
+            background-color: #FAFAFA;
+            -webkit-appearance: none !important;
+            width: 100%;
+        }
+        .ant-card-bordered {
+            background: #f2f2f2;
+            text-align: left;
+        }
+        strong{
+            font-weight: bold;
+            font-weight: 700;
+            color: #4d4d4d;
+            cursor: pointer;
+        }
+        p {
+            font-size: 0.875rem;
+            line-height: 1.6;  
+            font-weight: 300;
+        }
+        button.ant-btn.ant-btn-primary.ant-btn-lg {
+            margin-top: 1.5rem;
+        }
+    }
+    strong, p {
+        margin: 0;
+        padding: 0;
+    }
+    @include for-size(xl){
+        padding-left: 30% !important;
+        padding-right: 30% !important;
+    }
+    @include for-size(md){
+        padding-left: 16.66667%;
+        padding-right: 16.66667%;
+    }
+    
+}
