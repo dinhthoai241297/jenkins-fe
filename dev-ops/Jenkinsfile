@@ -29,8 +29,7 @@ node{
         if (_BRANCH_NAME.matches("dev-ops|dev|beta|staging|master")) {
             BUILD_COMMAND = """
                                 cd ./source
-                                rm -rf package-lock.json
-                                npm -v && node -v && npm install && npm run build:dev
+                                npm -v && node -v && rm -rf node_modules && rm ./package-lock.json && npm cache clean --force && npm install && npm run build:dev
                                 ls ./build
                                 tar -zcvf build.tar.gz ./build
                             """
