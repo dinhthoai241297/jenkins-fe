@@ -29,7 +29,7 @@ node{
         if (_BRANCH_NAME.matches("dev-ops|dev|beta|staging|master")) {
             BUILD_COMMAND = """
                                 cd ./source
-                                npm install
+                                npm install -f
                                 npm run build:dev
                                 ls ./build
                                 tar -zcvf build.tar.gz ./build
